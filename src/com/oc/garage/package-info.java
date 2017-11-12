@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author benoi
+ * @author Benoît
  *
  */
 package com.oc.garage;
