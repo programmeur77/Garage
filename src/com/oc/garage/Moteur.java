@@ -1,7 +1,9 @@
 package com.oc.garage;
 
-public abstract class Moteur {
-	protected TypeMoteur type;
+import java.io.Serializable;
+
+public abstract class Moteur implements Serializable {
+	protected TypeMoteur type = TypeMoteur.DIESEL;
 	protected String cylindre;
 	protected double prix;
 	
@@ -12,5 +14,6 @@ public abstract class Moteur {
 		this.prix = prix;
 	}
 	
-	abstract public String toString();
+	abstract public void mot(Moteur moteur);
+	
 }
