@@ -14,7 +14,7 @@ public class Lagouna extends Vehicule {
 	}
 	
 	public String getNom() {
-		return this.nom;
+		return nom;
 	}
 	
 	public double getPrix() {
