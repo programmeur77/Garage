@@ -1,6 +1,8 @@
 package com.oc.garage;
 
-public class GPS implements Options {
+import java.io.Serializable;
+
+public class GPS implements Options, Serializable {
 	public String nom = "GPS";
 	public double prix = 0d;
 
