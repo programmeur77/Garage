@@ -1,6 +1,8 @@
-package com.oc.garage;					
+package com.oc.garage;
 
-public class BarreDeToit implements Options {
+import java.io.Serializable;
+
+public class BarreDeToit implements Options, Serializable {
 	private String nom = "Barres de toit";
 	private double prix = 0.0d;
 
