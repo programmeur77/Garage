@@ -1,6 +1,8 @@
 package com.oc.garage;
 
-public class Climatisation implements Options {
+import java.io.Serializable;
+
+public class Climatisation implements Options, Serializable {
 	private String nom = "Climatisation";
 	private double prix = 0.0d;
 
