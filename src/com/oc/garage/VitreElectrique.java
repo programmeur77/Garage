@@ -1,6 +1,8 @@
 package com.oc.garage;
 
-public class VitreElectrique implements Options {
+import java.io.Serializable;
+
+public class VitreElectrique implements Options, Serializable {
 	private double prix = 0.0d;
 	private String nom = "Vitre Electrique";
 
