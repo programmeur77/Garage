@@ -11,7 +11,6 @@ public class Vehicule implements Serializable {
 	protected List<Options> option = new ArrayList<Options> ();
 	protected Moteur type;
 	protected Marque nomMarque;
-	protected Moteur moteur = new MoteurDiesel();
 	
 	
 	
@@ -35,7 +34,7 @@ public class Vehicule implements Serializable {
 		
 		return this.getNom() + " " + this.getNomMarque() + " " + this.getMoteur() + " ("
 				+ this.getPrix() + "€) (" + this.getOptions() + " prix : " + this.getPrixOptions()
-				+ "€) Pour une valeur total de " + this.prixTotal() + "€";
+				+ "€) Valeur totale: " + this.prixTotal() + "€";
 	}
 	
 	public void addOption(Options opt) {
@@ -64,13 +63,13 @@ public class Vehicule implements Serializable {
 		return type;
 	}
 	
-	public void setMoteur(Moteur moteur) {
-		this.moteur = moteur;
+	public void setMoteur(Moteur type) {
+		this.type = type;
 	}
 	
 	public double getPrixOptions() {
 		for(int i = 0; i < option.size(); i++)
-			prixOptions = option.get(i).getPrix();
+			prixOptions += option.get(i).getPrix();
 		return prixOptions;
 	}
 	
