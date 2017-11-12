@@ -3,6 +3,7 @@ package com.oc.garage;
 public class MoteurEssence extends Moteur {
 	private String cylindre = "145 ch";
 	private double prix = 145d;
+	private Moteur moteur;
 	
 	private TypeMoteur type = TypeMoteur.ESSENCE;
 
@@ -13,6 +14,11 @@ public class MoteurEssence extends Moteur {
 	public MoteurEssence(String cylindre, double prix) {
 		this.cylindre = cylindre;
 		this.prix = prix;
+	}
+	
+	public void mot(Moteur moteur) {
+		this.moteur = moteur;
+		
 	}
 
 	@Override
