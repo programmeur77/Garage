@@ -1,15 +1,18 @@
 package com.oc.garage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-public class Vehicule {
+public class Vehicule implements Serializable {
 	protected double prix;
+	protected double prixOptions;
 	protected String nom;
 	protected List<Options> option = new ArrayList<Options> ();
+	protected Moteur type;
 	protected Marque nomMarque;
+	protected Moteur moteur = new MoteurDiesel();
+	
 	
 	
 	public Vehicule() {
@@ -18,20 +21,21 @@ public class Vehicule {
 		prix = 12500d;
 		option.add(new GPS());
 		option.add(new BarreDeToit());
-		nomMarque = PIGEO;	
+		nomMarque = Marque.RENO;
 	}
 	
-	public Vehicule(String nom, double prix, Marque nomMarque) {
+	public Vehicule(String nom, double prix, List<Options> opt, Marque nomMarque) {
 		this.nom = nom;
 		this.prix = prix;
+		this.option = opt;
 		this.nomMarque = nomMarque;
 	}
 	
 	public String toString() {
-		String str = this.nomMarque + " " + this.nom + " " + this.prix + "€\n";
 		
-		return str;
-		
+		return this.getNom() + " " + this.getNomMarque() + " " + this.getMoteur() + " ("
+				+ this.getPrix() + "€) (" + this.getOptions() + " prix : " + this.getPrixOptions()
+				+ "€) Pour une valeur total de " + this.prixTotal() + "€";
 	}
 	
 	public void addOption(Options opt) {
@@ -39,19 +43,40 @@ public class Vehicule {
 	}
 	
 	public List<Options> getOptions() {
-		ListIterator it = option.listIterator();
-		while(it.hasNext())	
-			return (List<Options>) (List) it.next();
+		return option;
 		
-		
-		while(it.hasNext()) { 
-			
-		}
 	}
-		
 	
+	public String getNom() {
+		return nom;
+	}
+	
+		
 	public double getPrix() {
 		return prix;
 	}
-
+	
+	public Marque getNomMarque() {
+		return nomMarque;
+	}
+	
+	public Moteur getMoteur() {
+		return type;
+	}
+	
+	public void setMoteur(Moteur moteur) {
+		this.moteur = moteur;
+	}
+	
+	public double getPrixOptions() {
+		for(int i = 0; i < option.size(); i++)
+			prixOptions = option.get(i).getPrix();
+		return prixOptions;
+	}
+	
+	public double prixTotal() {
+		double total = prix + prixOptions;
+		return total;
+	}
+	
 }
