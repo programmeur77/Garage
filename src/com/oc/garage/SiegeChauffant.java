@@ -1,7 +1,9 @@
 package com.oc.garage;
 
-public class SiegeChauffant implements Options {
-	private String nom = "Siège électrique";
+import java.io.Serializable;
+
+public class SiegeChauffant implements Options, Serializable {
+	private String nom = "Siège chauffant";
 	private double prix = 0.0d;
 
 	public SiegeChauffant() {
