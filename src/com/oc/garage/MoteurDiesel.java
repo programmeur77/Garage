@@ -32,6 +32,9 @@ public class MoteurDiesel extends Moteur {
 	public double getPrix() {
 		return this.prix;
 	}
-	
+	public String toString() {
+		// TODO Auto-generated method stub
+		return '(' + type.getType() +  " " + this.cylindre + " " + this.prix + "€)\n";
+	}
 
 }
